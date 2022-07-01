@@ -61,7 +61,6 @@ def registerUser(request):
 
             )
 
-            sendEmail(tomail=data['email'],name=data['name'],type='register')
             serializer = serializers.UserSerializerWithToken(user, many=False)
             return Response(serializer.data)
 

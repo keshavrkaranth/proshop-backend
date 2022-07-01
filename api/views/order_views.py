@@ -60,7 +60,6 @@ def addOrder(request):
             product.countInStock -= item.qty
             product.save()
 
-        sendEmail(tomail=user.email,name=user.first_name,type='order',order_id=order.orderId)
 
         serializer = serializers.OrderSerializer(order, many=False)
         return Response(serializer.data)
